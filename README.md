@@ -34,14 +34,14 @@ Agrega un encabezado con navegación. Incluye un enlace interno que lleve al for
 
 <details>
     <summary>Solución</summary>
-    ```html
+    
       <header>
         <nav class="nav">
           <a href="#formulario" class="nav-link" id="link-form">Ir al formulario</a>
           <a href="https://www.example.com/reglamento-prestamos" class="nav-link" id="link-reglamento" target="_blank" rel="noopener">Reglamento</a>
         </nav>
       </header>
-    ```
+    
 </details>
 
 - Aquí usas **`href`** para definir destinos (interno con `#formulario` y externo con URL).
@@ -53,7 +53,7 @@ Agrega un encabezado con navegación. Incluye un enlace interno que lleve al for
 Crea una sección con un formulario para solicitar el préstamo. Relaciona cada `label` con su `input` mediante `for`/`id` y usa distintos `type` en los campos.
 <details>
     <summary>Solución</summary>
-    ```html
+
     <section id="formulario">
       <h2>Solicitud de préstamo</h2>
       <form id="form-prestamo" class="tarjeta" action="#" method="post">
@@ -91,7 +91,7 @@ Crea una sección con un formulario para solicitar el préstamo. Relaciona cada 
         </div>
       </form>
     </section>
-    ```
+    
 </details>
 
 - Practicas **`type`** (`text`, `email`, `number`, `date`) y el uso de `required`.
@@ -105,7 +105,7 @@ Crea una tabla para listar los préstamos registrados. Empieza con un mensaje de
 
 <details>
     <summary>Solución</summary>
-    ```html
+
     <section id="reservas">
       <h2>Préstamos registrados</h2>
       <table id="tabla-prestamos" class="tabla-prestamos">
@@ -127,7 +127,7 @@ Crea una tabla para listar los préstamos registrados. Empieza con un mensaje de
         </tbody>
       </table>
     </section>
-    ```
+    
 </details>
 
 
@@ -138,9 +138,11 @@ Crea una tabla para listar los préstamos registrados. Empieza con un mensaje de
 ### Paso 4 - Sube los cambios al repositorio
 <details>
     <summary>Solución</summary>
-    `git add index.html`
-    `git commit -m  "mensaje"`
-    `git push origin main`
+
+    git add index.html
+    git commit -m  "mensaje"
+    git push origin main
+
 </details>
 
 ¡Listo! Ya practicaste las etiquetas y atributos solicitados en un caso realista de aula de cómputo.
