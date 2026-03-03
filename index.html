@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejercicio HTML – Préstamo de Computadoras (STARTER)</title>
+  <!-- Instrucciones: Trabaja SOLO en este archivo. NO crees archivos nuevos. -->
+  <style>
+    /* ====== ESTILOS (ya incluidos) ====== */
+    :root { --azul:#1f6feb; --gris:#f6f8fa; --borde:#d0d7de; --texto:#24292f; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
+           color:var(--texto); background:var(--gris); margin:0; }
+    header { background:white; border-bottom:1px solid var(--borde); padding:1rem; position:sticky; top:0; }
+    header .nav { display:flex; gap:1rem; align-items:center; }
+    .nav-link { color:var(--azul); text-decoration:none; }
+    .nav-link:hover { text-decoration:underline; }
+
+    main { max-width: 960px; margin: 1.5rem auto; padding: 0 1rem; }
+    .tarjeta { background:white; border:1px solid var(--borde); border-radius:.5rem; padding:1rem; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fila { display:flex; flex-direction:column; gap:.25rem; }
+
+    label { font-weight:600; }
+    .campo { border:1px solid var(--borde); border-radius:.375rem; padding:.5rem .75rem; font-size:1rem; }
+
+    .acciones { display:flex; gap:.5rem; margin-top:.75rem; }
+    .btn { border:1px solid var(--borde); background:#fff; border-radius:.375rem; padding:.5rem .9rem; cursor:pointer; }
+    .btn-primary { background:var(--azul); border-color:var(--azul); color:white; }
+    .btn:focus { outline:2px solid #99c2ff; outline-offset:2px; }
+
+    h2 { margin: 1.5rem 0 .75rem; }
+
+    .tabla-prestamos { width:100%; border-collapse:collapse; background:white; border:1px solid var(--borde); border-radius:.5rem; overflow:hidden; }
+    .tabla-prestamos th, .tabla-prestamos td { border-bottom:1px solid var(--borde); padding:.5rem .75rem; text-align:left; }
+    .tabla-prestamos thead { background:#f0f4ff; }
+    .tabla-prestamos tr:hover td { background:#fafcff; }
+
+    footer { color:#57606a; font-size:.9rem; padding:2rem 1rem; text-align:center; }
+    .nota { font-size:.95rem; color:#57606a; }
+
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="theme-light">
+  <header>
+    <nav class="nav" aria-label="Principal">
+      <!-- TODO-01: Crea un enlace <a> con href="#formulario", class="nav-link" e id="link-form" con el texto "Ir al formulario" -->
+      <!-- TODO-01: Crea un enlace <a> externo con href a un reglamento (puede ser https://www.example.com/), class="nav-link", id="link-reglamento" y target="_blank" -->
+    </nav>
+  </header>
+
+  <main>
+    <h1>Préstamo de Computadoras – Aula de Cómputo</h1>
+    <p class="nota">Completa los TODO para practicar: <strong>label, a, input, option, form, table, tr, th, td, button, script y style</strong>, y atributos: <strong>class, href, type e id</strong>.</p>
+
+    <!-- ====== Sección del formulario ====== -->
+    <section id="formulario" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Solicitud de préstamo</h2>
+      <!-- TODO-02: Crea un <form> con id="form-prestamo", class="tarjeta", action="#" y method="post" -->
+      <!-- Dentro del form: crea un contenedor <div class="grid"> y agrega los campos siguientes (cada uno en <div class="fila">):
+           - label[for="nombre"] + input#nombre.type="text".class="campo" (required)
+           - label[for="correo"] + input#correo.type="email".class="campo" (required)
+           - label[for="aula"] + select#aula.class="campo" con options: vacío, A1, A2, B1, B2 (required)
+           - label[for="equipo"] + input#equipo.type="number".class="campo" min=1 max=60 (required)
+           - label[for="fecha"] + input#fecha.type="date".class="campo" (required)
+           - label[for="duracion"] + input#duracion.type="number".class="campo" min=1 max=6 value=1
+      -->
+      <!-- Al final del form agrega un <div class="acciones"> con:
+           - <button type="submit" id="btn-enviar" class="btn btn-primary">Registrar préstamo</button>
+           - <button type="button" id="btn-limpiar" class="btn">Limpiar</button>
+      -->
+    </section>
+
+    <!-- ====== Sección de la tabla ====== -->
+    <section id="reservas" aria-labelledby="titulo-tabla">
+      <h2 id="titulo-tabla">Préstamos registrados</h2>
+      <!-- TODO-03: Crea una <table id="tabla-prestamos" class="tabla-prestamos"> con:
+           thead>tr>th (Folio, Nombre, Correo, Aula, Equipo, Fecha, Duración)
+           tbody con una fila inicial: <tr><td colspan="7">No hay préstamos aún.</td></tr>
+      -->
+    </section>
+  </main>
+
+  <footer>
+    <small>Starter · HTML/CSS/JS · © 2026</small>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('form-prestamo');
+      const tbody = document.querySelector('#tabla-prestamos tbody');
+      const btnLimpiar = document.getElementById('btn-limpiar');
+
+      let folio = 1;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const correo = document.getElementById('correo').value.trim();
+        const aula = document.getElementById('aula').value;
+        const equipo = document.getElementById('equipo').value;
+        const fecha = document.getElementById('fecha').value;
+        const duracion = document.getElementById('duracion').value || '1';
+
+        if (!nombre || !correo || !aula || !equipo || !fecha) {
+          alert('Por favor completa todos los campos requeridos.');
+          return;
+        }
+
+        // Limpia el placeholder inicial si existe
+        const placeholder = tbody.querySelector('td[colspan]');
+        if (placeholder) tbody.innerHTML = '';
+
+        const tr = document.createElement('tr');
+        [folio, nombre, correo, aula, equipo, fecha, duracion + ' h'].forEach(valor => {
+          const td = document.createElement('td');
+          td.textContent = valor;
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+        folio++;
+        form.reset();
+        document.getElementById('nombre').focus();
+      });
+
+      btnLimpiar.addEventListener('click', function () {
+        form.reset();
+        document.getElementById('nombre').focus();
+      });
+    });
+  </script>
+</body>
+</html>
