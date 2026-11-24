@@ -49,7 +49,9 @@
     <nav class="nav" aria-label="Principal">
       <!-- TODO-01: Crea un enlace <a> con href="#formulario", class="nav-link" e id="link-form" con el texto "Ir al formulario" -->
       <!-- TODO-01: Crea un enlace <a> externo con href a un reglamento (puede ser https://www.example.com/), class="nav-link", id="link-reglamento" y target="_blank" -->
-    </nav>
+    <a href="#formulario" class="nav-link" id="link-form">Ir al formulario</a>
+    <a href="https://www.example.com/" class="nav-link" id="link-reglamento" target="_blank" rel="noopener">Reglamento</a>
+      </nav>
   </header>
 
   <main>
@@ -72,6 +74,50 @@
            - <button type="submit" id="btn-enviar" class="btn btn-primary">Registrar préstamo</button>
            - <button type="button" id="btn-limpiar" class="btn">Limpiar</button>
       -->
+       <form id="form-prestamo" class="tarjeta" action="#" method="post">
+        <div class="grid">
+          <div class="fila">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" class="campo" placeholder="Tu nombre" required />
+          </div>
+          
+          <div class="fila">
+            <label for="correo">Correo institucional</label>
+            <input type="email" id="correo" class="campo" placeholder="tu@escuela.edu" required />
+          </div>
+          <div class="fila">
+            <label for="aula">Aula de cómputo</label>
+            <select id="aula" class="campo" required>
+              <option value="">— Selecciona un aula —</option>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+            </select>
+          </div>
+
+          <div class="fila">
+            <label for="equipo">Número de equipo</label>
+            <input type="number" id="equipo" class="campo" min="1" max="60" placeholder="Ej. 12" required />
+          </div>
+
+          <div class="fila">
+            <label for="fecha">Fecha del préstamo</label>
+            <input type="date" id="fecha" class="campo" required />
+          </div>
+
+          <div class="fila">
+            <label for="duracion">Duración (horas)</label>
+            <input type="number" id="duracion" class="campo" min="1" max="6" value="1" />
+          </div>
+        
+        </div>
+        <div class="acciones">
+          <button type="submit" id="btn-enviar" class="btn btn-primary">Registrar préstamo</button>
+          <button type="button" id="btn-limpiar" class="btn">Limpiar</button>
+        </div>
+      </form>
+
     </section>
 
     <!-- ====== Sección de la tabla ====== -->
@@ -81,6 +127,25 @@
            thead>tr>th (Folio, Nombre, Correo, Aula, Equipo, Fecha, Duración)
            tbody con una fila inicial: <tr><td colspan="7">No hay préstamos aún.</td></tr>
       -->
+
+      <table id="tabla-prestamos" class="tabla-prestamos">
+        <thead>
+          <tr>
+            <th>Folio</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Aula</th>
+            <th>Equipo</th>
+            <th>Fecha</th>
+            <th>Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7">No hay préstamos aún.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </main>
 
